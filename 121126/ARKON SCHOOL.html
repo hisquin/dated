@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ARKON SCHOOL — Cohort-based product design & development, Kigali</title>
+<meta name="description" content="Practical, cohort-based training in product design (UI/UX) and product development. Learn by doing. Improve through feedback. Build things that work.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f0e8;--ink:#14130f;--mut:#6b675c;--line:#14130f;--soft:#e4e0d4;--acc:#e5471b;--ok:#1d6b3a;--r:0;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12110e;--ink:#f1eee4;--mut:#a09b8c;--line:#f1eee4;--soft:#25231d;--acc:#ff6a3d;--ok:#5fcf8a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12110e;--ink:#f1eee4;--mut:#a09b8c;--line:#f1eee4;--soft:#25231d;--acc:#ff6a3d;--ok:#5fcf8a;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif}
+.mono,label,.tag,th{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.05;margin:0}
+h1{font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em}h2{font-size:clamp(1.6rem,4vw,2.4rem)}h3{font-size:1.3rem}
+a{color:inherit}.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{border-bottom:2px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;flex-wrap:wrap}
+.logo{font:700 18px 'JetBrains Mono',monospace;text-decoration:none;letter-spacing:.06em}.logo b{color:var(--acc)}
+nav{display:flex;gap:4px;flex-wrap:wrap}nav a{padding:10px 10px;text-decoration:none;font:600 12px 'JetBrains Mono',monospace;text-transform:uppercase;min-height:44px;display:flex;align-items:center}
+nav a[aria-current=page]{box-shadow:inset 0 -3px var(--acc)}
+section{padding:40px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;background:var(--ink);color:var(--bg);border:2px solid var(--ink);font:600 13px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--acc);border-color:var(--acc);color:#fff}.btn.alt{background:transparent;color:var(--ink)}.btn:disabled{opacity:.5;cursor:wait}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.lede{font-size:1.2rem;max-width:36em;color:var(--mut);margin:18px 0 26px}
+.ledger{border-top:2px solid var(--line)}
+.row{display:grid;grid-template-columns:1.1fr 1.6fr 1fr 1fr 40px;gap:12px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+.row:hover{background:var(--soft)}.row .arrow{font-size:20px;text-align:right}
+.row small{display:block;color:var(--mut);font-size:13px}
+.status{font:600 11px 'JetBrains Mono',monospace;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px}
+.status:before{content:"";width:9px;height:9px;background:currentColor}
+.s-open{color:var(--ok)}.s-soon{color:var(--acc)}.s-full,.s-closed{color:var(--mut)}.s-full:before{background:none;border:2px solid currentColor}.s-closed:before{clip-path:polygon(0 0,100% 100%,100% 0,0 100%)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px}.split>div{min-width:0}
+ul.plain{list-style:none;padding:0;margin:10px 0}ul.plain li{padding:9px 0;border-bottom:1px solid var(--soft)}
+ul.plain li:before{content:"→ ";color:var(--acc)}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0}dt{color:var(--mut)}dd{margin:0}
+form{display:grid;gap:16px;max-width:560px}label{display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:16px;padding:12px;min-height:48px;background:transparent;color:var(--ink);border:2px solid var(--line);border-radius:0;width:100%}
+.err{color:var(--acc);font-size:13px;min-height:1em;text-transform:none;font-family:Inter}
+.note{border-left:4px solid var(--acc);padding:10px 14px;background:var(--soft);margin:14px 0;font-size:14px}
+.pills{display:flex;gap:8px;flex-wrap:wrap}.pills button{min-height:44px;padding:0 14px;background:transparent;color:var(--ink);border:2px solid var(--line);font:600 12px 'JetBrains Mono',monospace;text-transform:uppercase;cursor:pointer}
+.pills button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--soft);vertical-align:top}
+.tbl{overflow-x:auto}.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--line)}
+.steps div{padding:14px 12px 14px 0;counter-increment:s}.steps div:before{content:"0" counter(s);display:block;font:600 12px 'JetBrains Mono',monospace;color:var(--acc)}
+footer{border-top:2px solid var(--line);padding:28px 0;color:var(--mut);font-size:14px}
+@media(max-width:760px){.row{grid-template-columns:1fr auto;gap:4px}.row>*:nth-child(3),.row>*:nth-child(4){grid-column:1/2}.row .arrow{grid-row:1/4;grid-column:2}.split{grid-template-columns:1fr;gap:24px}.steps{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:no-preference){.btn,.row{transition:background .15s,color .15s}}
+</style></head>
+<body>
+<header><div class="wrap"><a class="logo" href="#home">ARKON<b>/</b>SCHOOL</a>
+<nav aria-label="Main"><a href="#cohorts">Cohorts</a><a href="#courses">Courses</a><a href="#about">About</a><a href="#contact">Contact</a><a href="#apply">Apply</a></nav></div></header>
+<main id="app" class="wrap" tabindex="-1" aria-live="polite"></main>
+<footer><div class="wrap">ARKON SCHOOL · a product of ArkonMade · Kigali, Rwanda · <a href="#admin">Staff</a></div></footer>
+<script>
+// ---- EDIT HERE: confirmed business facts only. Empty = shown as "To be confirmed". ----
+const CONFIG={email:""}; // school inbox used as fallback for applications & enquiries
+const DEFAULT_COURSES=[
+{id:"product-design",title:"Product Design (UI/UX)",cat:"Design",summary:"Learn to research, design and test digital products people can actually use.",duration:"",format:"",price:"",prereq:"",
+ learn:["User experience and interface design","Product thinking and discovery","User research","Wireframing and prototyping","Design systems","Usability testing"],tools:[],projects:["A portfolio of real product work, reviewed through mentor feedback"]},
+{id:"product-development",title:"Product Development",cat:"Engineering",summary:"Build, test and ship working digital products, from frontend to AI integration.",duration:"",format:"",price:"",prereq:"",
+ learn:["Software engineering: frontend and backend","No-code and low-code development","AI implementation and integration","Testing and deployment"],tools:[],projects:["Functional digital products you can demonstrate"]}];
+const ST={open:"Open for registration",soon:"Coming soon",full:"Fully booked",closed:"Closed"};
+const S={courses:DEFAULT_COURSES.slice(),cohorts:[],apps:[],enq:[],db:null,admin:false,uid:null,fc:"All"};
+const $=s=>document.querySelector(s),app=$("#app");
+const esc=t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const tbc=v=>v?esc(v):'<span class="mut" style="color:var(--mut)">To be confirmed</span>';
+const slug=t=>t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60);
+const fd=d=>{if(!d)return null;const x=new Date(d+"T00:00");return isNaN(x)?d:x.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})};
+const course=id=>S.courses.find(c=>c.id===id);
+const rank={open:0,soon:1,full:2,closed:3};
+const sortedCohorts=()=>S.cohorts.slice().sort((a,b)=>(rank[a.status]-rank[b.status])||String(a.start||"9").localeCompare(String(b.start||"9")));
+const badge=s=>`<span class="status s-${s}">${ST[s]||s}</span>`;
+
+// ---- data layer (db capability; site still renders without it) ----
+async function init(){
+ try{const[db,user]=await Promise.all([claude.use("db"),claude.use("user")]);S.db=db;
+  if(user){S.admin=await user.canEdit();S.uid=await user.id()}}catch(e){}
+ if(S.db){
+  const sub=(path,fn)=>{try{S.db.collection(path).onSnapshot(sn=>{fn(sn.docs.map(d=>({id:d.id,...d.data()})));route()},()=>{})}catch(e){}};
+  sub("courses",rows=>{const m=new Map(DEFAULT_COURSES.map(c=>[c.id,c]));rows.forEach(r=>m.set(r.id,r));S.courses=[...m.values()].filter(c=>!c.hidden)});
+  sub("cohorts",rows=>S.cohorts=rows);
+  if(S.admin){const fl=r=>r.flatMap(x=>(x.items||[]).map(i=>({...i,_d:x.id}))).sort((a,b)=>(b.at||0)-(a.at||0));sub("applications",r=>S.apps=fl(r));sub("enquiries",r=>S.enq=fl(r))}
+ }
+ route();
+}
+// Registration/enquiry: stored if the viewer can write; otherwise falls back to email. Same doc id = no duplicates.
+async function submit(coll,id,data,subject,body){
+ data.at=Date.now();data.id=id;
+ if(S.db&&S.uid){try{const ref=S.db.doc(coll+"/"+S.uid);let items=[];try{const sn=await ref.get();items=(sn.data()?.items)||[]}catch(e){}
+  items=items.filter(i=>i.id!==id);items.push(data);await ref.set({uid:S.uid,items});return"stored"}catch(e){}}
+ if(CONFIG.email){location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;return"email"}
+ throw new Error("no-channel");
+}
+
+// ---- views ----
+function cohortRows(list,withCourse=true){
+ if(!list.length)return`<p class="note">No cohorts have been announced yet. Check back soon, or <a href="#contact">ask us</a> to notify you.</p>`;
+ return`<div class="ledger" role="list">`+list.map(c=>{const co=course(c.courseId);return`<a class="row" role="listitem" href="#cohort-${esc(c.id)}">
+ <div><span class="mono">${esc(c.name||c.id)}</span></div><div><strong>${esc(co?.title||"Course")}</strong><small>${esc(c.format||"")} ${c.duration?"· "+esc(c.duration):""}</small></div>
+ <div>${c.start?esc(fd(c.start)):"Start date TBC"}</div><div>${badge(c.status)}</div><div class="arrow" aria-hidden="true">→</div></a>`}).join("")+`</div>`}
+const views={
+home(){const open=sortedCohorts().filter(c=>c.status==="open"||c.status==="soon").slice(0,4);
+ return`<section><p class="mono" style="color:var(--acc)">Kigali · Product design & development</p>
+ <h1>Join a cohort.<br>Build products that work.</h1>
+ <p class="lede">ARKON SCHOOL trains designers and builders in small, mentored cohorts. Learn by doing. Improve through feedback. Ship real work.</p>
+ <a class="btn" href="#cohorts">Explore Cohorts</a> <a class="btn alt" href="#courses">Browse Courses</a></section>
+ <section><div class="head"><h2>Next intakes</h2><a href="#cohorts" class="mono">All cohorts →</a></div>${cohortRows(open)}</section>
+ <section><h2>How it works</h2><div class="steps" style="margin-top:18px"><div><strong>Pick a cohort</strong><br>Choose the intake that fits your schedule.</div><div><strong>Apply</strong><br>A short form. No long essays.</div><div><strong>Get confirmed</strong><br>We reply with next steps.</div><div><strong>Build</strong><br>Practical projects with mentor feedback.</div></div></section>
+ <section class="split"><div><h3>Product Design</h3><p style="color:var(--mut)">Research, UX, UI, prototyping, design systems, usability testing.</p></div><div><h3>Product Development</h3><p style="color:var(--mut)">Frontend, backend, no-code, AI integration, testing and deployment.</p></div></section>`},
+cohorts(){const list=sortedCohorts().filter(c=>S.fc==="All"||c.status===S.fc);
+ return`<section><div class="head"><h1 style="font-size:clamp(2rem,5vw,3.2rem)">Cohorts</h1></div>
+ <p class="lede" style="margin-top:0">Every course runs in cohorts. Pick the start date that suits you.</p>
+ <div class="pills" role="group" aria-label="Filter by status" style="margin-bottom:20px">${["All",...Object.keys(ST)].map(k=>`<button data-f="${k}" aria-pressed="${S.fc===k}">${k==="All"?"All":ST[k]}</button>`).join("")}</div>
+ ${cohortRows(list)}</section>`},
+courses(){return`<section><h1 style="font-size:clamp(2rem,5vw,3.2rem)">Courses</h1>
+ <p class="lede">The curriculum behind each cohort.</p><div class="ledger">`+S.courses.map(c=>{const n=S.cohorts.filter(x=>x.courseId===c.id&&x.status==="open").length;
+ return`<a class="row" style="grid-template-columns:1.4fr 2fr 1fr 40px" href="#course-${esc(c.id)}"><div><strong style="font-family:Fraunces,serif;font-size:1.3rem">${esc(c.title)}</strong><small>${esc(c.cat||"")}</small></div><div>${esc(c.summary)}</div><div>${n?`<span class="status s-open">${n} open cohort${n>1?"s":""}</span>`:'<span class="status s-closed">No open cohort</span>'}</div><div class="arrow">→</div></a>`}).join("")+`</div></section>`},
+course(id){const c=course(id);if(!c)return views.notfound();const cs=sortedCohorts().filter(x=>x.courseId===id);
+ const L=a=>a?.length?`<ul class="plain">${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:'<p>To be confirmed</p>';
+ return`<section><a href="#courses" class="mono">← Courses</a><h1 style="margin:14px 0 8px;font-size:clamp(2rem,5vw,3.4rem)">${esc(c.title)}</h1><p class="lede">${esc(c.summary)}</p></section>
+ <section class="split"><div><h3>What you will learn</h3>${L(c.learn)}<h3 style="margin-top:24px">Tools covered</h3>${L(c.tools)}<h3 style="margin-top:24px">Practical outcomes</h3>${L(c.projects)}</div>
+ <div><h3>At a glance</h3><dl style="margin-top:12px"><dt>Duration</dt><dd>${tbc(c.duration)}</dd><dt>Format</dt><dd>${tbc(c.format)}</dd><dt>Price</dt><dd>${tbc(c.price)}</dd><dt>Prerequisites</dt><dd>${tbc(c.prereq)}</dd></dl></div></section>
+ <section><div class="head"><h2>Cohorts for this course</h2></div>${cohortRows(cs)}</section>`},
+cohort(id){const c=S.cohorts.find(x=>x.id===id);if(!c)return views.notfound();const co=course(c.courseId);
+ return`<section><a href="#cohorts" class="mono">← Cohorts</a><h1 style="margin:14px 0 8px;font-size:clamp(2rem,5vw,3.4rem)">${esc(co?.title||"Cohort")}</h1><p class="mono">${esc(c.name||c.id)} · ${badge(c.status)}</p></section>
+ <section class="split"><div><dl><dt>Starts</dt><dd>${tbc(fd(c.start))}</dd><dt>Duration</dt><dd>${tbc(c.duration||co?.duration)}</dd><dt>Schedule</dt><dd>${tbc(c.schedule)}</dd><dt>Format</dt><dd>${tbc(c.format||co?.format)}</dd><dt>Price</dt><dd>${tbc(co?.price)}</dd><dt>Deadline</dt><dd>${tbc(fd(c.deadline))}</dd></dl><p style="margin-top:26px">${c.status==="open"?`<a class="btn" href="#apply?cohort=${esc(c.id)}">Apply Now</a>`:`<span class="note" style="display:block">${c.status==="soon"?"Registration opens soon. <a href='#contact'>Ask to be notified.</a>":"Registration is not available for this cohort. <a href='#cohorts'>See other cohorts.</a>"}</span>`}</p></div>
+ <div>${co?`<h3>What you will learn</h3><ul class="plain">${(co.learn||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul><a href="#course-${esc(co.id)}" class="mono">Full course details →</a>`:""}</div></section>`},
+apply(q){const open=S.cohorts.filter(c=>c.status==="open");const pre=S.cohorts.find(c=>c.id===q.get("cohort"));const cid=pre?.courseId||q.get("course")||"";
+ return`<section><h1 style="font-size:clamp(2rem,5vw,3.2rem)">Apply</h1><p class="lede">Four fields. We reply with next steps.</p>
+ ${!open.length?`<p class="note">No cohort is open for registration right now. You can still <a href="#contact">leave your details</a> and we will contact you when one opens.</p>`:""}
+ <form id="f" novalidate>
+ <label>Course<select name="course" required><option value="">Select a course</option>${S.courses.map(c=>`<option value="${esc(c.id)}" ${c.id===cid?"selected":""}>${esc(c.title)}</option>`).join("")}</select><span class="err" data-e="course"></span></label>
+ <label>Cohort<select name="cohort"></select><span class="err" data-e="cohort"></span></label>
+ <label>Full name<input name="name" autocomplete="name" required><span class="err" data-e="name"></span></label>
+ <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" required><span class="err" data-e="email"></span></label>
+ <label>Phone / WhatsApp<input name="phone" type="tel" autocomplete="tel" inputmode="tel"><span class="err" data-e="phone"></span></label>
+ <label>Anything we should know? (optional)<textarea name="note" rows="3" maxlength="500"></textarea></label>
+ <button class="btn" type="submit">Submit application</button><div class="err" id="fe" role="alert"></div></form></section>`},
+done(q){return`<section><p class="mono" style="color:var(--ok)">✓ Application sent</p><h1 style="margin:10px 0 16px;font-size:clamp(2rem,5vw,3.4rem)">Thank you${q.get("n")?", "+esc(q.get("n").split(" ")[0]):""}.</h1>
+ <p class="lede">${q.get("via")==="email"?"Your email app should now have a pre-filled message. Please press send to complete your application.":"We have received your application."} We will contact you at the email you gave with next steps.</p><a class="btn" href="#cohorts">Back to cohorts</a></section>`},
+about(){return`<section><h1 style="font-size:clamp(2rem,5vw,3.2rem)">About</h1><p class="lede">ARKON SCHOOL is the practical learning arm of ArkonMade, a product design and development studio in Kigali, Rwanda.</p>
+ <div class="split"><div><p>We are not a generic coding academy or a traditional university. We develop people who can find problems, design solutions and build useful digital products.</p><p>Our emphasis is practical skills, mentorship, execution, professional standards and work you can show.</p></div>
+ <div><h3>Learn by doing.<br>Improve through feedback.<br>Build things that work.</h3></div></div></section>`},
+contact(){return`<section><h1 style="font-size:clamp(2rem,5vw,3.2rem)">Contact</h1><p class="lede">Questions about a cohort, or want to be notified when one opens?</p>
+ <form id="c" novalidate><label>Name<input name="name" autocomplete="name" required><span class="err" data-e="name"></span></label><label>Email<input name="email" type="email" required><span class="err" data-e="email"></span></label>
+ <label>Message<textarea name="msg" rows="4" required maxlength="800"></textarea><span class="err" data-e="msg"></span></label><button class="btn" type="submit">Send message</button><div class="err" id="ce" role="alert"></div></form></section>`},
+admin(){if(!S.admin)return`<section><h1>Staff</h1><p class="note">Course and cohort management is for the page owner and invited editors. Open this page while signed in to claude.ai.</p></section>`;
+ const cOpts=S.courses.map(c=>`<option value="${esc(c.id)}">${esc(c.title)}</option>`).join("");
+ return`<section><h1 style="font-size:2.4rem">Staff dashboard</h1><p class="note">Changes publish instantly to the public site.</p>
+ <div class="split"><form id="ac"><h3>Add / edit course</h3><label>Title<input name="title" required></label><label>Category<input name="cat" placeholder="Design"></label><label>Summary<textarea name="summary" rows="2"></textarea></label>
+ <label>Duration<input name="duration"></label><label>Format<input name="format"></label><label>Price<input name="price"></label><label>Prerequisites<input name="prereq"></label>
+ <label>What students learn (one per line)<textarea name="learn" rows="3"></textarea></label><button class="btn">Save course</button><div class="err" id="ace"></div><small>Same title as an existing course edits it.</small></form>
+ <form id="ak"><h3>Create cohort</h3><label>Course<select name="courseId">${cOpts}</select></label><label>Cohort name<input name="name" required placeholder="e.g. Design — Cohort 1"></label><label>Start date<input type="date" name="start"></label><label>Registration deadline<input type="date" name="deadline"></label>
+ <label>Duration<input name="duration"></label><label>Schedule<input name="schedule" placeholder="e.g. Tue/Thu evenings"></label><label>Format<input name="format" placeholder="On-site / Online / Hybrid"></label>
+ <label>Status<select name="status">${Object.entries(ST).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select></label><button class="btn">Save cohort</button><div class="err" id="ake"></div></form></div></section>
+ <section><h2>Cohorts</h2><div class="tbl"><table><tr><th>Cohort</th><th>Course</th><th>Status</th></tr>${S.cohorts.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(course(c.courseId)?.title)}</td><td><select data-st="${esc(c.id)}">${Object.entries(ST).map(([k,v])=>`<option value="${k}" ${k===c.status?"selected":""}>${v}</option>`).join("")}</select></td></tr>`).join("")||"<tr><td colspan=3>None yet</td></tr>"}</table></div></section>
+ <section><h2>Applications (${S.apps.length})</h2><div class="tbl"><table><tr><th>Date</th><th>Applicant</th><th>Cohort</th><th>Status</th></tr>${S.apps.map(a=>`<tr><td>${new Date(a.at).toLocaleDateString("en-GB")}</td><td>${esc(a.name)}<br><small>${esc(a.email)} ${esc(a.phone||"")}</small></td><td>${esc(S.cohorts.find(c=>c.id===a.cohort)?.name||course(a.course)?.title||"—")}</td><td><select data-as="${esc(a.id)}">${["new","contacted","accepted","waitlisted","declined"].map(k=>`<option ${k===(a.status||"new")?"selected":""}>${k}</option>`).join("")}</select></td></tr>`).join("")||"<tr><td colspan=4>None yet</td></tr>"}</table></div></section>
+ <section><h2>Enquiries (${S.enq.length})</h2><div class="tbl"><table>${S.enq.map(a=>`<tr><td>${esc(a.name)}<br><small>${esc(a.email)}</small></td><td>${esc(a.msg)}</td></tr>`).join("")||"<tr><td>None yet</td></tr>"}</table></div></section>`},
+notfound(){return`<section><h1>Not found</h1><p><a href="#cohorts">See cohorts</a></p></section>`}};
+
+// ---- routing & events ----
+function route(){const h=location.hash.slice(1)||"home",[p,qs]=h.split("?"),q=new URLSearchParams(qs||"");let v=p,arg;
+ if(p.startsWith("course-")){v="course";arg=p.slice(7)}else if(p.startsWith("cohort-")){v="cohort";arg=p.slice(7)}
+ if(!views[v])v="notfound";
+ const active=document.activeElement?.closest("form");if(active&&(v==="apply"||v==="contact"))return; // never wipe a form mid-typing
+ app.innerHTML=views[v](arg||q);
+ document.title=(v==="home"?"":v[0].toUpperCase()+v.slice(1)+" · ")+"ARKON SCHOOL";
+ document.querySelectorAll("nav a").forEach(a=>a.getAttribute("href")==="#"+(v==="cohort"?"cohorts":v==="course"?"courses":v)?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+ if(v==="apply")wireApply();window.scrollTo(0,0)}
+window.addEventListener("hashchange",()=>{route()});
+function fillCohorts(){const f=$("#f");if(!f)return;const sel=f.cohort,cur=new URLSearchParams(location.hash.split("?")[1]||"").get("cohort")||sel.value;
+ const list=S.cohorts.filter(c=>c.status==="open"&&(!f.course.value||c.courseId===f.course.value));
+ sel.innerHTML=`<option value="">${list.length?"Select a cohort":"No open cohort for this course"}</option>`+list.map(c=>`<option value="${esc(c.id)}" ${c.id===cur?"selected":""}>${esc(c.name)}${c.start?" — starts "+fd(c.start):""}</option>`).join("");
+ if(!f.course.value&&sel.value){const c=S.cohorts.find(x=>x.id===sel.value);if(c){f.course.value=c.courseId;fillCohorts()}}}
+function wireApply(){const f=$("#f");if(!f)return;fillCohorts();f.course.onchange=()=>{fillCohorts()}}
+function check(f,rules){let ok=true;f.querySelectorAll(".err[data-e]").forEach(e=>e.textContent="");
+ for(const[k,fn]of Object.entries(rules)){const m=fn(f[k].value.trim());if(m){f.querySelector(`[data-e=${k}]`).textContent=m;ok=false}}
+ if(!ok)f.querySelector(".err[data-e]:not(:empty)")?.previousElementSibling?.focus();return ok}
+const req=m=>v=>v?"":m,email=v=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)?"":"Enter a valid email";
+document.addEventListener("click",e=>{const b=e.target.closest("[data-f]");if(b){S.fc=b.dataset.f;route()}});
+document.addEventListener("change",async e=>{const t=e.target;try{
+ if(t.dataset.st)await S.db.doc("cohorts/"+t.dataset.st).update({status:t.value});
+ if(t.dataset.as){const a=S.apps.find(x=>x.id===t.dataset.as);const items=S.apps.filter(x=>x._d===a._d).map(({_d,...r})=>r.id===a.id?{...r,status:t.value}:r);await S.db.doc("applications/"+a._d).update({items})}}catch(x){alert("Could not save: "+(x.message||x))}});
+document.addEventListener("submit",async e=>{e.preventDefault();const f=e.target,btn=f.querySelector("button[type=submit],button:not([type])");
+ const val=()=>Object.fromEntries(new FormData(f));
+ try{
+ if(f.id==="f"){
+  if(!check(f,{course:req("Select a course"),cohort:v=>S.cohorts.some(c=>c.status==="open"&&c.courseId===f.course.value)&&!v?"Select a cohort":"",name:req("Enter your name"),email,phone:v=>v&&v.replace(/\D/g,"").length<7?"Enter a valid phone number":""}))return;
+  const d=val();btn.disabled=true;btn.textContent="Sending…";
+  const id=slug(d.email+"-"+(d.cohort||d.course));d.id=id;d.status="new";
+  const c=S.cohorts.find(x=>x.id===d.cohort);
+  const body=`Application\nCourse: ${course(d.course)?.title}\nCohort: ${c?.name||"-"}\nName: ${d.name}\nEmail: ${d.email}\nPhone: ${d.phone||"-"}\nNote: ${d.note||"-"}`;
+  const via=await submit("applications",id,d,"Application: "+(course(d.course)?.title||""),body);
+  location.hash=`#done?n=${encodeURIComponent(d.name)}&via=${via}`;
+ }
+ if(f.id==="c"){if(!check(f,{name:req("Enter your name"),email,msg:req("Write a message")}))return;
+  const d=val();btn.disabled=true;const via=await submit("enquiries",slug(d.email)+"-"+Date.now(),d,"Enquiry from "+d.name,d.msg+"\n\n"+d.name+" <"+d.email+">");
+  f.outerHTML=`<p class="note">${via==="email"?"Your email app should open with the message ready to send.":"Message sent. We will reply by email."}</p>`}
+ if(f.id==="ac"){const d=val();if(!d.title.trim())return;const id=slug(d.title);d.id=id;d.learn=d.learn.split("\n").map(x=>x.trim()).filter(Boolean);
+  await S.db.doc("courses/"+id).set(d);f.reset();$("#ace").textContent="Saved."}
+ if(f.id==="ak"){const d=val();if(!d.name.trim())return;const id=slug(d.name);d.id=id;await S.db.doc("cohorts/"+id).set(d);f.reset();$("#ake").textContent="Saved."}
+ }catch(x){const t=f.querySelector(".err:not([data-e])");const m=x.message==="no-channel"?"Submissions are not connected yet. Please contact the school directly.":"Something went wrong. Please try again.";if(t)t.textContent=m;else alert(m);if(btn){btn.disabled=false;btn.textContent="Try again"}}});
+init();
+</script></body></html>
