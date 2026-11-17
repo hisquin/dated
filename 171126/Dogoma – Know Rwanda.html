@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dogoma – Know Rwanda</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F5F2EA;--fg:#171A19;--ac:#D97745;--ln:#171A1928;--mu:#171A19A6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171A19;--fg:#F5F2EA;--ln:#F5F2EA2B;--mu:#F5F2EAA6}}
+:root[data-theme="dark"]{--bg:#171A19;--fg:#F5F2EA;--ln:#F5F2EA2B;--mu:#F5F2EAA6}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg) repeating-radial-gradient(circle at 100% 0,transparent 0 26px,var(--ln) 26px 27px);color:var(--fg);font:16px/1.55 "Space Grotesk",system-ui,sans-serif}
+main,header{max-width:760px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;gap:14px;padding-top:18px;padding-bottom:18px;border-bottom:1px solid var(--ln)}
+.logo{width:34px;height:38px}.brand{font:800 22px "Fraunces",Georgia,serif;letter-spacing:.04em;margin-right:auto}
+h1,h2{font-family:"Fraunces",Georgia,serif;line-height:1.05;margin:.2em 0 .3em}
+h1{font-size:clamp(40px,9vw,72px);font-weight:800}h1 small{font-size:.4em;font-weight:500}h2{font-size:clamp(22px,4.5vw,30px);font-weight:500}
+.hero{padding:34px 0 10px}.mu,small,.kick{color:var(--mu)}.kick{margin:0;font-size:14px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.btn{background:var(--ac);color:#171A19;border:0;border-radius:3px;padding:12px 22px;font-weight:600}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.chip,.lnk{background:none;border:1px solid var(--fg);border-radius:999px;padding:7px 15px}
+.chip[aria-pressed=true]{background:var(--fg);color:var(--bg)}.chip:disabled{opacity:.4;border-style:dashed;cursor:not-allowed}
+.lnk{border:0;text-decoration:underline;padding:4px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.grp{margin:18px 0}.grp>p{margin:0 0 4px;font-weight:600}
+.opt{display:block;width:100%;text-align:left;background:none;border:1px solid var(--fg);border-radius:3px;padding:13px 16px;margin:8px 0}
+.opt:hover:not(:disabled){background:var(--ln)}.opt:disabled{color:var(--fg)}
+.opt.ok{background:var(--ac);color:#171A19;border-color:var(--ac)}.opt.ok::before{content:"✓ "}
+.opt.bad{text-decoration:line-through;border-style:dashed}.opt.bad::before{content:"✕ "}
+.bar{display:flex;gap:16px;justify-content:space-between;padding-top:14px}.prog{height:4px;background:var(--ln)}.prog i{display:block;height:100%;background:var(--ac)}
+article{padding:20px 0}
+input,select,textarea{background:var(--bg);border:1px solid var(--fg);border-radius:3px;padding:10px 12px;max-width:100%}
+textarea{width:100%;font:13px/1.4 ui-monospace,Menlo,monospace}
+.fb{border-left:4px solid var(--ac);padding:6px 16px;margin-top:14px}.fb.miss{border-left-style:dotted}.fb p{margin:.4em 0}
+.mrow{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:8px 0}
+.rev{list-style:none;padding:0}.rev li{padding:10px 0;border-top:1px solid var(--ln)}.rev span{font-weight:800;margin-right:6px}
+.li{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;padding:8px 0;border-top:1px solid var(--ln)}.li span{flex:1 1 240px}
+.stats{display:flex;gap:28px;border-top:1px solid var(--ln);padding-top:14px;margin-top:26px}.stats b{font:800 28px "Fraunces",Georgia,serif;display:block}
+@media(prefers-reduced-motion:no-preference){.prog i{transition:width .4s}}
+body{font:17px/1.55 "Instrument Sans",system-ui,sans-serif}
+h1,h2,.brand,.stats b,.num,.sg b{font-family:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif}
+.brand{font-weight:800;font-variation-settings:"wdth" 75;letter-spacing:.06em;font-size:27px}
+h1{font-weight:800;font-variation-settings:"wdth" 80;letter-spacing:-.02em;line-height:.95}
+h2{font-weight:600;font-size:clamp(24px,5.5vw,34px);line-height:1.15;letter-spacing:-.01em}
+.opt{font-size:18px;font-weight:500}.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.bar{align-items:center}#ck,#sc,#pg{font-weight:700;font-size:19px}
+.qt{display:flex;align-items:center;gap:12px;margin-bottom:10px}.qt .num{min-width:3ch;font-size:30px;font-weight:800}.tbar{flex:1;height:6px;background:var(--ln)}.tbar i{display:block;height:100%;background:var(--ac)}
+.trow{display:flex;gap:8px}.trow input{flex:1;min-width:0;font-size:20px;padding:12px 14px}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px 20px;margin:10px 0 22px}.sg b{display:block;font-size:36px;font-weight:800;line-height:1}
+</style></head><body>
+<header><svg class="logo" viewBox="0 0 100 112" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round" aria-hidden="true"><circle cx="50" cy="14" r="10" fill="currentColor" stroke="none"/><path d="M16 46C2 74 22 98 42 104 68 110 90 90 90 58 90 44 82 34 76 30"/><path d="M26 82C48 92 68 80 64 62 62 50 44 50 34 60"/></svg>
+<span class="brand">DOGOMA</span><button class="lnk" data-a="nav" data-v="home">Play</button><button class="lnk" data-a="nav" data-v="editor">Content</button><button class="lnk" data-a="theme" aria-label="Switch light or dark theme">◐</button></header>
+<main id="app"><p>Loading questions…</p></main>
+
+<script type="application/json" id="seed">
+{"countries":[
+{"key":"RW","name":"Rwanda","label":"Know Rwanda","region":"Eastern Africa","capital":"Kigali","languages":["rw","fr","en","sw"],"status":"published"},
+{"key":"AFR","name":"Pan-African","label":"Know Africa (preview)","region":"Africa","status":"published"}],
+"sources":{"SRC-0001":"Government of Rwanda, country profile","SRC-0002":"Rwanda Development Board, national parks","SRC-0003":"Constitution of the Republic of Rwanda","SRC-0004":"CNLG, Kwibuka commemoration","SRC-0005":"National Institute of Statistics of Rwanda, administrative geography","SRC-0006":"African Union, about the AU","SRC-0007":"Encyclopaedia Britannica"},
+"questions":[
+{"id":"RW-GEO-0001","scope":"country","country_codes":["RW"],"category":"geography","subcategory":"cities","difficulty":"easy","question_type":"fill_blank","question":"The capital and largest city of Rwanda is ____.","correct_answer":"Kigali","accepted_answers":["Kigali","City of Kigali"],"explanation":"Kigali lies near the centre of the country and is both its capital and its largest city.","source_ids":["SRC-0001"],"status":"published","version":1},
+{"id":"RW-GEO-0002","scope":"country","country_codes":["RW"],"category":"geography","subcategory":"administration","difficulty":"easy","question_type":"multiple_choice","question":"How many provinces does Rwanda have?","options":["3","4","5","6"],"correct_answer":"5","explanation":"Rwanda has five provinces: Kigali City and the Northern, Southern, Eastern and Western provinces.","source_ids":["SRC-0005"],"status":"published","version":1},
+{"id":"RW-GEO-0003","scope":"country","country_codes":["RW"],"category":"geography","subcategory":"borders","difficulty":"easy","question_type":"true_false","question":"Rwanda is a landlocked country.","correct_answer":"True","explanation":"Rwanda has no sea coast. It borders Uganda, Tanzania, Burundi and the Democratic Republic of the Congo.","source_ids":["SRC-0001"],"status":"published","version":1},
+{"id":"RW-GEO-0004","scope":"country","country_codes":["RW"],"category":"geography","subcategory":"lakes","difficulty":"medium","question_type":"multiple_choice","question":"Which lake forms much of Rwanda’s western border?","options":["Lake Victoria","Lake Tanganyika","Lake Kivu","Lake Albert"],"correct_answer":"Lake Kivu","explanation":"Lake Kivu is one of the African Great Lakes and is shared with the Democratic Republic of the Congo.","source_ids":["SRC-0001"],"status":"published","version":1},
+{"id":"RW-GEO-0005","scope":"country","country_codes":["RW"],"category":"geography","subcategory":"administration","difficulty":"medium","question_type":"matching","question":"Match each district to its province.","pairs":[["Musanze","Northern"],["Huye","Southern"],["Rubavu","Western"],["Rwamagana","Eastern"]],"explanation":"Musanze is in the Northern Province, Huye in the Southern, Rubavu in the Western and Rwamagana in the Eastern.","source_ids":["SRC-0005"],"status":"published","version":1},
+{"id":"RW-GEO-0006","scope":"country","country_codes":["RW"],"category":"geography","subcategory":"mountains","difficulty":"hard","question_type":"multiple_choice","question":"What is the highest point in Rwanda?","options":["Mount Muhabura","Mount Karisimbi","Mount Bisoke","Mount Nyiragongo"],"correct_answer":"Mount Karisimbi","explanation":"Karisimbi, a volcano in the Virunga range, rises to about 4,500 metres. Nyiragongo is in the Democratic Republic of the Congo.","source_ids":["SRC-0007"],"status":"published","version":1},
+{"id":"RW-PLC-0001","scope":"country","country_codes":["RW"],"category":"places","subcategory":"national parks","difficulty":"easy","question_type":"multiple_choice","question":"Which national park is best known for mountain gorilla trekking?","options":["Akagera","Nyungwe","Volcanoes","Gishwati-Mukura"],"correct_answer":"Volcanoes","explanation":"Volcanoes National Park, in the north-west, protects part of the Virunga range and its mountain gorillas.","source_ids":["SRC-0002"],"status":"published","version":1},
+{"id":"RW-PLC-0002","scope":"country","country_codes":["RW"],"category":"places","subcategory":"national parks","difficulty":"medium","question_type":"multiple_choice","question":"Which national park in the east of Rwanda protects savannah wildlife?","options":["Akagera","Nyungwe","Volcanoes","Gishwati-Mukura"],"correct_answer":"Akagera","explanation":"Akagera National Park lies along the Tanzanian border and combines savannah, lakes and wetlands.","source_ids":["SRC-0002"],"status":"published","version":1},
+{"id":"RW-HIS-0001","scope":"country","country_codes":["RW"],"category":"history","subcategory":"independence","difficulty":"easy","question_type":"multiple_choice","question":"On what date did Rwanda become independent from Belgium?","options":["1 July 1960","1 July 1962","4 July 1962","1 July 1963"],"correct_answer":"1 July 1962","explanation":"Rwanda gained independence from Belgian administration on 1 July 1962.","source_ids":["SRC-0001","SRC-0007"],"status":"published","version":1},
+{"id":"RW-HIS-0002","scope":"country","country_codes":["RW"],"category":"history","subcategory":"timeline","difficulty":"medium","question_type":"chronological_order","question":"Put these events in order, earliest first.","options":["Independence from Belgium","Genocide against the Tutsi","Rwanda joins the East African Community"],"correct_answer":["Independence from Belgium","Genocide against the Tutsi","Rwanda joins the East African Community"],"explanation":"Independence came in 1962, the genocide took place in 1994, and Rwanda joined the East African Community in 2007.","source_ids":["SRC-0001","SRC-0004"],"status":"published","version":1},
+{"id":"RW-HIS-0003","scope":"country","country_codes":["RW"],"category":"history","subcategory":"remembrance","difficulty":"medium","question_type":"multiple_choice","question":"Approximately how long did the 1994 Genocide against the Tutsi last?","options":["About 10 days","About 100 days","About 1 year","About 3 years"],"correct_answer":"About 100 days","explanation":"The genocide began on 7 April 1994 and ended in July 1994. Rwanda remembers it every year from 7 April.","source_ids":["SRC-0004"],"status":"published","version":1},
+{"id":"RW-HIS-0004","scope":"country","country_codes":["RW"],"category":"history","subcategory":"remembrance","difficulty":"easy","question_type":"short_answer","question":"What is the Kinyarwanda name, meaning “to remember”, of the annual commemoration of the 1994 genocide against the Tutsi?","correct_answer":"Kwibuka","explanation":"Kwibuka is the national commemoration, held each year from 7 April.","source_ids":["SRC-0004"],"status":"published","version":1},
+{"id":"RW-CUL-0001","scope":"country","country_codes":["RW"],"category":"culture","subcategory":"art","difficulty":"easy","question_type":"multiple_choice","question":"Which geometric art form, traditionally made with cow dung, is associated with Rwanda?","options":["Kente","Imigongo","Adire","Ndebele"],"correct_answer":"Imigongo","explanation":"Imigongo is a Rwandan art of bold geometric patterns. Kente is Ghanaian, Adire is Nigerian and Ndebele painting is South African.","source_ids":["SRC-0001"],"status":"published","version":1},
+{"id":"RW-CUL-0002","scope":"country","country_codes":["RW"],"category":"culture","subcategory":"language","difficulty":"easy","question_type":"true_false","question":"Kinyarwanda is an official language of Rwanda.","correct_answer":"True","explanation":"Kinyarwanda, English and French are official languages of Rwanda.","source_ids":["SRC-0003"],"status":"published","version":1},
+{"id":"RW-CUL-0003","scope":"country","country_codes":["RW"],"category":"culture","subcategory":"economy","difficulty":"medium","question_type":"fill_blank","question":"Rwanda’s national currency is the Rwandan ____.","correct_answer":"franc","accepted_answers":["franc","Rwandan franc","RWF"],"explanation":"The Rwandan franc (RWF) is the national currency.","source_ids":["SRC-0001"],"status":"published","version":1},
+{"id":"AF-GEO-0001","scope":"africa","country_codes":["EG","SD","UG","RW"],"category":"geography","subcategory":"rivers","difficulty":"easy","question_type":"multiple_choice","question":"Which river is generally considered the longest in Africa?","options":["Congo","Niger","Nile","Zambezi"],"correct_answer":"Nile","explanation":"The Nile runs about 6,650 km northwards to the Mediterranean. Rwanda’s Nyabarongo is often cited as one of its remote headstreams.","source_ids":["SRC-0007"],"status":"published","version":1},
+{"id":"AF-GEO-0002","scope":"africa","country_codes":["TZ"],"category":"geography","subcategory":"mountains","difficulty":"easy","question_type":"true_false","question":"Mount Kilimanjaro, the highest mountain in Africa, is in Tanzania.","correct_answer":"True","explanation":"Kilimanjaro rises to about 5,895 metres in north-eastern Tanzania.","source_ids":["SRC-0007"],"status":"published","version":1},
+{"id":"AF-HIS-0001","scope":"africa","country_codes":["GH"],"category":"history","subcategory":"independence","difficulty":"medium","question_type":"multiple_choice","question":"Which country was the first in sub-Saharan Africa to gain independence from European colonial rule, in 1957?","options":["Nigeria","Kenya","Ghana","Senegal"],"correct_answer":"Ghana","explanation":"Ghana became independent on 6 March 1957 under Kwame Nkrumah.","source_ids":["SRC-0007"],"status":"published","version":1},
+{"id":"AF-POL-0001","scope":"africa","country_codes":["ET"],"category":"pan-african","subcategory":"institutions","difficulty":"medium","question_type":"multiple_choice","question":"In which city is the headquarters of the African Union?","options":["Nairobi","Kigali","Abuja","Addis Ababa"],"correct_answer":"Addis Ababa","explanation":"The African Union is headquartered in Addis Ababa, Ethiopia.","source_ids":["SRC-0006"],"status":"published","version":1}
+]}
+</script>
+
+<script>
+const $=s=>document.querySelector(s),arr=Array.isArray,esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuf=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+const SEED=JSON.parse($('#seed').textContent),SRC=SEED.sources,REG=SEED.countries,app=$('#app');
+/* scoring config, kept outside question records */
+const CFG={max:{easy:80,medium:100,hard:120},minRatio:.2,qTime:{easy:20,medium:25,hard:30},fb:{count:8,time:3},counts:[5,10,15,20],durations:[60,120,180,300]};
+
+/* question-type handlers: v=validate, r=render, c=check, s=show answer. Register a new type here. */
+const choice=(l,b,d,keep)=>(keep?l:shuf(l)).forEach(o=>{const x=document.createElement('button');x.className='opt';x.textContent=o;x.onclick=()=>d(o);b.append(x)});
+const typed=(q,b,d)=>{b.innerHTML='<div class="trow"><input id="ti" type="text" inputmode="text" enterkeyhint="send" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Your answer"><button class="btn" id="tb" type="button">Submit</button></div>';const i=$('#ti'),f=()=>{if(i.value.trim())d(i.value)};CUR.get=()=>i.value;$('#tb').onclick=f;i.onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();f()}};setTimeout(()=>i.focus(),0)};
+const txtOk=q=>typeof q.correct_answer==='string'&&q.correct_answer.trim()?null:'correct_answer required';
+const osa=(a,b)=>{const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]!==b[j-1]));if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])d[i][j]=Math.min(d[i][j],d[i-2][j-2]+1)}return d[m][n]};
+/* tolerant matching: normalisation, accepted variants, typo tolerance by length; answers containing digits stay exact */
+function fuzzy(q,a){const v={normalization:true,allow_minor_typos:true,case_sensitive:false,...q.validation},C=[q.correct_answer,...(q.accepted_answers||[]),...(q.accepted||[])];if(v.case_sensitive)return C.some(c=>String(c).trim()===String(a).trim());const f=s=>v.normalization?norm(s):String(s).trim().toLowerCase(),x=f(a);if(!x)return false;
+ return C.some(c=>{const y=f(c);if(x===y)return true;if(!v.allow_minor_typos||/\d/.test(y))return false;const L=y.length,k=L<=4?0:L<=8?1:2;return k>0&&Math.abs(x.length-L)<=k&&osa(x,y)<=k})}
+const same=q=>q.correct_answer,TXT={v:txtOk,r:typed,c:fuzzy,s:same};
+const H={
+ multiple_choice:{v:q=>arr(q.options)&&q.options.length>=2&&q.options.includes(q.correct_answer)?null:'options must include correct_answer',r:(q,b,d)=>choice(q.options,b,d),c:(q,a)=>a===q.correct_answer,s:same},
+ true_false:{v:q=>['True','False'].includes(q.correct_answer)?null:'correct_answer must be True or False',r:(q,b,d)=>choice(['True','False'],b,d,1),c:(q,a)=>a===q.correct_answer,s:same},
+ fill_blank:TXT,short_answer:TXT,
+ chronological_order:{v:q=>arr(q.options)&&arr(q.correct_answer)&&q.options.length>=2&&q.options.length===q.correct_answer.length&&q.options.every(o=>q.correct_answer.includes(o))?null:'options and ordered correct_answer must match',
+  r:(q,b,d)=>{const p=[];b.innerHTML='<p class="mu">Tap in order, earliest first.</p>';shuf(q.options).forEach(o=>{const x=document.createElement('button');x.className='opt';x.textContent=o;x.onclick=()=>{p.push(o);x.disabled=true;x.textContent=p.length+'. '+o;if(p.length===q.options.length)d(p)};b.append(x)});const r=document.createElement('button');r.className='lnk';r.textContent='Start over';r.onclick=()=>{p.length=0;b.querySelectorAll('.opt').forEach(x=>{x.disabled=false;x.textContent=x.textContent.replace(/^\d+\. /,'')})};b.append(r);CUR.get=()=>p},
+  c:(q,a)=>JSON.stringify(a)===JSON.stringify(q.correct_answer),s:q=>q.correct_answer.join(' → ')},
+ matching:{v:q=>arr(q.pairs)&&q.pairs.length>=2&&q.pairs.every(p=>arr(p)&&p.length===2&&p.every(x=>typeof x==='string'&&x))&&new Set(q.pairs.map(p=>p[1])).size===q.pairs.length?null:'pairs need 2+ unique [left,right] strings',
+  r:(q,b,d)=>{const R=shuf(q.pairs.map(p=>p[1]));b.innerHTML=q.pairs.map(p=>`<label class="mrow"><span>${esc(p[0])}</span><select><option value="">Choose…</option>${R.map(x=>`<option>${esc(x)}</option>`).join('')}</select></label>`).join('')+'<button class="btn" id="mb">Submit</button>';CUR.get=()=>[...b.querySelectorAll('select')].map(s=>s.value);$('#mb').onclick=()=>d([...b.querySelectorAll('select')].map(s=>s.value))},
+  c:(q,a)=>q.pairs.every((p,i)=>a[i]===p[1]),s:q=>q.pairs.map(p=>p[0]+' – '+p[1]).join('; ')}
+};
+/* image_identification and map_location: register another entry in H, no engine change needed */
+
+function validate(q){if(!q||typeof q!=='object'||arr(q))return['record is not an object'];const e=[];
+ ['id','scope','category','difficulty','question_type','question','explanation','status'].forEach(k=>{if(typeof q[k]!=='string'||!q[k].trim())e.push('missing '+k)});
+ if(q.id&&!/^[A-Z]{2,3}-[A-Z]{3}-\d{4}$/.test(q.id))e.push('id must look like RW-HIS-0001');
+ if(!['easy','medium','hard'].includes(q.difficulty))e.push('difficulty must be easy, medium or hard');
+ if(!['draft','reviewed','published','archived'].includes(q.status))e.push('invalid status');
+ if(!['country','africa'].includes(q.scope))e.push('scope must be country or africa');
+ if(q.scope==='country'&&!(arr(q.country_codes)&&q.country_codes.length&&q.country_codes.every(c=>/^[A-Z]{2}$/.test(c))))e.push('country_codes must be ISO alpha-2 codes');
+ if(!arr(q.source_ids)||!q.source_ids.length)e.push('source_ids required');else q.source_ids.forEach(s=>{if(!SRC[s])e.push('unknown source '+s)});
+ const h=H[q.question_type];if(!h)e.push('unknown question_type');else{const m=h.v(q);if(m)e.push(m)}return e}
+
+/* content repository: seed JSON is canonical, IndexedDB holds working drafts */
+const db=new Promise(r=>{try{const o=indexedDB.open('dogoma',1);o.onupgradeneeded=()=>o.result.createObjectStore('q',{keyPath:'id'});o.onsuccess=()=>r(o.result);o.onerror=()=>r(null)}catch{r(null)}});
+const idb=async(m,f)=>{const d=await db;if(!d)return;return new Promise(r=>{try{const t=d.transaction('q',m),q=f(t.objectStore('q'));t.oncomplete=()=>r(q&&q.result);t.onerror=()=>r()}catch{r()}})};
+const repo={m:new Map(),seed(){this.m=new Map(SEED.questions.map(q=>[q.id,q]))},async init(){this.seed();((await idb('readonly',s=>s.getAll()))||[]).forEach(q=>this.m.set(q.id,q))},
+ all(){return[...this.m.values()]},async put(q){this.m.set(q.id,q);await idb('readwrite',s=>s.put(q))},async reset(){await idb('readwrite',s=>s.clear());this.seed()}};
+
+/* guest identity and progress */
+const G=(()=>{let d;try{d=JSON.parse(localStorage.getItem('dogoma.guest'))}catch{}d=d&&arr(d.games)?d:{id:(crypto.randomUUID?crypto.randomUUID():'g'+Date.now()),games:[],xp:0};return{d,save(){try{localStorage.setItem('dogoma.guest',JSON.stringify(d))}catch{}}}})();
+
+const ACTIVE=['RW'],S={view:'home',cat:'all',mode:'count',n:15,dur:120,sess:null},CUR={get:()=>null}; /* ACTIVE = internal content scope, not a player choice */
+const inScope=(q,k)=>k==='AFR'?q.scope==='africa':q.scope==='country'&&q.country_codes.includes(k);
+const pool=(c=S.cat)=>repo.all().filter(q=>q.status==='published'&&!validate(q).length&&ACTIVE.some(k=>inScope(q,k))&&(c==='all'||q.category===c));
+const cap=s=>s[0].toUpperCase()+s.slice(1);
+/* pure scoring: linear from max (instant) to min (at deadline); late or wrong = 0 */
+const qLimit=q=>CFG.qTime[q.difficulty]*1e3;
+function scoreFor(q,ms){const T=qLimit(q);ms=Math.max(0,ms);if(ms>T)return 0;const mx=CFG.max[q.difficulty],mn=Math.round(mx*CFG.minRatio);return Math.round(mn+(mx-mn)*(T-ms)/T)}
+let TK=null;const stop=()=>{clearInterval(TK);TK=null},fmt=ms=>{const s=Math.max(0,Math.ceil(ms/1e3));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+function go(v){stop();if(v!=='game'&&v!=='result'&&S.sess&&S.sess.phase!=='done')S.sess.phase='done';S.view=v;({home,game,result,editor})[v]();scrollTo(0,0)}
+function home(){const all=pool('all'),cats=[...new Set(all.map(q=>q.category))],p=pool(),t=S.mode==='time',g=G.d.games,best=g.reduce((m,x)=>Math.max(m,x.score),0);
+ const chips=(a,cur,it)=>it.map(([v,l])=>`<button class="chip" data-a="${a}" data-v="${esc(v)}" aria-pressed="${cur==v}">${esc(l)}</button>`).join('');
+ app.innerHTML=`<section class="hero"><p class="kick">DOGOMA / ${esc(REG.find(r=>r.key===ACTIVE[0]).label)}</p><h1>Know where you come from.</h1><p class="mu">Faster correct answers earn more points. No account needed.</p></section>
+ <div class="grp"><p>What do you want to test your knowledge on?</p>${chips('cat',S.cat,[['all','Mixed knowledge ('+all.length+')'],...cats.map(c=>[c,cap(c)+' ('+pool(c).length+')'])])}</div>
+ <div class="grp"><p>How do you want to play?</p>${chips('mode',S.mode,[['count','Set number of questions'],['time','Against the clock']])}</div>
+ <div class="grp"><p>${t?'Time limit':'Number of questions'}</p>${t?chips('dur',S.dur,CFG.durations.map(d=>[d,d/60+(d===60?' minute':' minutes')])):chips('n',S.n,CFG.counts.map(c=>[c,c]))}</div>
+ <div class="row"><button class="btn" data-a="start" ${p.length?'':'disabled'}>Start game</button><span class="mu">${!p.length?'No published questions for this topic. Pick another topic.':t?'Answer as many as you can. Each question has its own time limit.':p.length<S.n?`Only ${p.length} questions available, so this game will have ${p.length}.`:''}</span></div>
+ <div class="stats"><span><b>${g.length}</b>games played</span><span><b>${best}</b>best score</span><span><b>${G.d.xp}</b>total points</span></div>`}
+function start(){const p=pool();if(!p.length)return home();const n=Date.now(),t=S.mode==='time';S.sess={mode:S.mode,qs:shuf(p).slice(0,t?p.length:S.n),i:-1,score:0,log:[],phase:'',t0:n,end:t?n+S.dur*1e3:0};go('game')}
+function game(){const s=S.sess;app.innerHTML=`<div class="bar"><span id="pg"></span><span id="sc" class="num"></span><span id="ck" class="num"></span><button class="lnk" data-a="quit">Quit</button></div><div class="prog"><i id="pb"></i></div><div id="qa"></div>`;TK=setInterval(tick,200);next(true)}
+function next(first){const s=S.sess;if(!s||s.phase==='done'||(!first&&s.phase!=='feedback'))return;if(s.end&&Date.now()>=s.end)return finish();s.i++;if(s.i>=s.qs.length)return finish();
+ const q=s.qs[s.i],n=Date.now();s.q=q;s.phase='ask';s.qs0=n;s.qdl=n+qLimit(q);CUR.get=()=>null;
+ $('#qa').innerHTML=`<article><p class="kick">${esc(cap(q.category))}, ${esc(q.difficulty)}</p><div class="qt"><span id="qt" class="num"></span><div class="tbar"><i id="tb2"></i></div></div><h2>${esc(q.question)}</h2><div id="ans"></div><div id="fb" aria-live="polite"></div></article>`;
+ H[q.question_type].r(q,$('#ans'),a=>resolve(a));hud()}
+function hud(){const s=S.sess,n=Date.now(),t=s.mode==='time';$('#pg').textContent=t?'Question '+(s.log.length+(s.phase==='ask'?1:0)):'Question '+(s.i+1)+' of '+s.qs.length;$('#sc').textContent=s.score+' pts';$('#ck').textContent=t?fmt(s.end-n)+' left':'';
+ $('#pb').style.width=Math.min(100,(t?(n-s.t0)/(s.end-s.t0):s.log.length/s.qs.length)*100)+'%';
+ if(s.phase==='ask'){const r=Math.max(0,s.qdl-n);$('#qt').textContent=Math.ceil(r/1e3)+'s';$('#tb2').style.width=r/qLimit(s.q)*100+'%'}else if(s.phase==='feedback'&&$('#ft'))$('#ft').textContent=Math.ceil(Math.max(0,s.fbEnd-n)/1e3)}
+/* one ticker drives all three clocks from real timestamps: session end, question deadline, feedback end */
+function tick(){const s=S.sess;if(!s||s.phase==='done')return;const n=Date.now();if(s.end&&n>=s.end)return finish();
+ if(s.phase==='ask'&&n>=s.qdl)resolve(CUR.get(),true);else if(s.phase==='feedback'&&n>=s.fbEnd)next();
+ if(s.phase!=='done')hud()}
+function resolve(a,auto){const s=S.sess;if(!s||s.phase!=='ask')return;const n=Date.now();if(s.end&&n>=s.end)return finish();
+ const q=s.q,h=H[q.question_type],late=!auto&&n>s.qdl,blank=late||a==null||a===''||(arr(a)&&a.every(x=>!x))||(typeof a==='string'&&!a.trim()),ok=!blank&&!!h.c(q,a),ms=Math.min(n-s.qs0,qLimit(q)),pts=ok?scoreFor(q,ms):0;
+ s.phase='feedback';s.score+=pts;s.log.push({id:q.id,res:blank?'none':ok?'ok':'bad',pts,ms});s.fbEnd=n+CFG.fb[s.mode]*1e3;
+ document.querySelectorAll('#ans .opt').forEach(b=>{if(b.textContent===q.correct_answer)b.classList.add('ok');else if(b.textContent===a)b.classList.add('bad')});
+ $('#ans').querySelectorAll('input,select,button').forEach(x=>x.disabled=true);
+ const last=!s.end&&s.i+1>=s.qs.length;
+ $('#fb').innerHTML=`<div class="fb ${ok?'good':'miss'}"><b>${ok?'Correct, +'+pts+' points':blank?'Time’s up, no answer':'Not quite'}</b>${ok?'':`<p>Answer: ${esc(h.s(q))}</p>`}<p>${esc(q.explanation)}</p><small>Sources: ${q.source_ids.map(i=>esc(SRC[i]||i)).join('; ')}</small><div class="row"><button class="btn" data-a="next">${last?'See results':'Next question'}</button><span class="mu">${last?'Results':'Next question'} in <b id="ft" class="num"></b>s</span></div></div>`;hud();const b=$('#fb .btn');if(b)b.focus()}
+function finish(){const s=S.sess;if(!s||s.phase==='done')return;s.phase='done';stop();s.t1=Math.min(Date.now(),s.end||Infinity);const L=s.log;G.d.games.push({t:Date.now(),mode:s.mode,score:s.score,ok:L.filter(x=>x.res==='ok').length,n:L.length});G.d.games=G.d.games.slice(-50);G.d.xp+=s.score;G.save();go('result')}
+function result(){const s=S.sess;if(!s)return go('home');const L=s.log,A=L.length,c=L.filter(x=>x.res==='ok'),w=L.filter(x=>x.res==='bad').length,u=L.filter(x=>x.res==='none').length,an=L.filter(x=>x.res!=='none'),
+ avg=an.length?an.reduce((a,x)=>a+x.ms,0)/an.length/1e3:0,fast=c.length?Math.min(...c.map(x=>x.ms))/1e3:0,mins=Math.max(1e3,s.t1-s.t0)/6e4,t=s.mode==='time',prev=G.d.games.slice(0,-1).filter(g=>g.mode===s.mode).reduce((m,x)=>Math.max(m,x.score),0),
+ st=(v,l)=>`<div><b class="num">${v}</b><small>${l}</small></div>`;
+ app.innerHTML=`<section class="hero"><p class="kick">${t?'Against the clock':'Question game'} finished</p><h1><span class="num">${s.score}</span> <small>points</small></h1><p>${s.score>prev?'New personal best for this format.':'Personal best for this format: '+prev+'.'} Wrong or missed questions score zero, so speed only counts when you know the answer.</p></section>
+ <h2>Knowledge</h2><div class="sg">${st(A?Math.round(c.length/A*100)+'%':'0%','accuracy')}${st(c.length,'correct')}${st(w,'incorrect')}${st(u,'unanswered')}${st(A,t?'questions attempted':'questions completed')}</div>
+ <h2>Speed</h2><div class="sg">${st(avg?avg.toFixed(1)+'s':'–','average answer time')}${st(fast?fast.toFixed(1)+'s':'–','fastest correct answer')}${t?st((A/mins).toFixed(1),'questions per minute'):''}</div>
+ <ol class="rev">${L.map(l=>{const q=repo.m.get(l.id);return`<li><span>${l.res==='ok'?'✓':l.res==='bad'?'✕':'–'}</span>${esc(q.question)}<br><small>${esc(H[q.question_type].s(q))}, ${l.res==='none'?'no answer':(l.ms/1e3).toFixed(1)+'s'}, ${l.pts} pts</small></li>`}).join('')}</ol>
+ <div class="row"><button class="btn" data-a="start">Play again</button><button class="chip" data-a="quit">Change challenge</button></div>`}
+
+/* content editor: drafts live in this browser; export returns validated JSON */
+const msg=t=>{$('#msg').innerHTML=[].concat(t).map(esc).join('<br>')};
+function editor(){app.innerHTML=`<section class="hero"><p class="kick">Content</p><h1>Question bank</h1><p class="mu">The seed JSON is the canonical dataset. Changes here are saved as drafts in this browser and exported back to JSON. They are not published to other players.</p></section>
+ <div class="row"><input id="sq" type="search" placeholder="Search questions" aria-label="Search questions"><select id="st" aria-label="Filter by status"><option value="">All statuses</option><option>published</option><option>draft</option><option>reviewed</option><option>archived</option></select><button class="chip" data-a="new">New question</button></div><div id="list"></div>
+ <h2>Edit as JSON</h2><textarea id="js" rows="14" spellcheck="false" aria-label="Question JSON"></textarea><div class="row"><button class="chip" data-a="val">Validate</button><button class="chip" data-a="prev">Preview</button><button class="btn" data-a="save">Save draft</button></div><div id="msg" role="status"></div><div id="pv"></div>
+ <h2>Import and export</h2><textarea id="io" rows="8" spellcheck="false" aria-label="Import or export JSON" placeholder="Paste a JSON array of questions here to import, or export the bank into this box."></textarea><div class="row"><button class="chip" data-a="exp" data-v="all">Export all</button><button class="chip" data-a="exp" data-v="pub">Export published</button><button class="chip" data-a="imp">Import</button><button class="chip" data-a="reset">Discard all drafts</button></div>`;
+ $('#sq').oninput=lst;$('#st').onchange=lst;lst()}
+function lst(){const t=$('#sq').value.toLowerCase(),st=$('#st').value,a=repo.all().filter(q=>(!st||q.status===st)&&(q.id+' '+q.question).toLowerCase().includes(t));
+ $('#list').innerHTML=`<p class="mu">${a.length} of ${repo.m.size} questions</p>`+(a.slice(0,100).map(q=>`<div class="li"><code>${esc(q.id)}</code><span>${esc(q.question)}</span><small>${esc(q.question_type)}, ${esc(q.difficulty)}, ${esc(q.status)}${validate(q).length?', invalid':''}</small><button class="lnk" data-a="edit" data-v="${esc(q.id)}">Edit</button><button class="lnk" data-a="arch" data-v="${esc(q.id)}">Archive</button></div>`).join('')||'<p>No questions match. Clear the search or add a new question.</p>')}
+function parse(){try{return JSON.parse($('#js').value)}catch(e){msg('Invalid JSON: '+e.message);return null}}
+async function imp(t){let j;try{j=JSON.parse(t)}catch(e){return['Invalid JSON: '+e.message]}const a=arr(j)?j:j&&j.questions;if(!arr(a))return['Expected a JSON array or {"questions": [...]}'];
+ const err=[],seen=new Set();a.forEach((q,i)=>{const e=validate(q);if(q&&q.id){if(seen.has(q.id))e.push('duplicate id in file');seen.add(q.id)}e.forEach(m=>err.push(`#${i+1} ${q&&q.id||'?'}: ${m}`))});
+ if(err.length)return err;for(const q of a)await repo.put(q);return[]}
+
+const ACT={
+ nav:go,theme:()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=d?'light':'dark'},
+ cat:v=>{S.cat=v;home()},mode:v=>{S.mode=v;home()},n:v=>{S.n=+v;home()},dur:v=>{S.dur=+v;home()},
+ start,quit:()=>go('home'),next:()=>{const s=S.sess;if(s&&s.phase==='feedback')next()},
+ new:()=>{$('#js').value=JSON.stringify({id:'RW-HIS-0100',scope:'country',country_codes:['RW'],category:'history',subcategory:'',difficulty:'easy',question_type:'multiple_choice',question:'',options:['','','',''],correct_answer:'',explanation:'',source_ids:['SRC-0001'],status:'draft',version:1},null,2);msg('New question template loaded.')},
+ edit:v=>{$('#js').value=JSON.stringify(repo.m.get(v),null,2);msg('Editing '+v);$('#js').scrollIntoView()},
+ val:()=>{const q=parse();if(!q)return;const e=validate(q);msg(e.length?e:(repo.m.has(q.id)?'Valid. Saving will update the existing question.':'Valid. Saving will add a new question.'))},
+ save:async()=>{const q=parse();if(!q)return;const e=validate(q);if(e.length)return msg(['Not saved:',...e]);const x=repo.m.get(q.id);q.version=x?Math.max(q.version||1,(x.version||1)+1):(q.version||1);await repo.put(q);lst();msg('Saved '+q.id+' (version '+q.version+').')},
+ prev:()=>{const q=parse();if(!q)return;const e=validate(q);if(e.length)return msg(['Cannot preview:',...e]);msg('');$('#pv').innerHTML=`<article><h2>${esc(q.question)}</h2><div id="pva"></div><p id="pvf" role="status"></p></article>`;H[q.question_type].r(q,$('#pva'),a=>{$('#pvf').textContent=H[q.question_type].c(q,a)?'Correct.':'Not correct. Answer: '+H[q.question_type].s(q)})},
+ arch:async v=>{const q={...repo.m.get(v),status:'archived'};q.version=(q.version||1)+1;await repo.put(q);lst()},
+ exp:v=>{$('#io').value=JSON.stringify(repo.all().filter(q=>v==='all'||q.status==='published'),null,2);msg('Exported. Copy this into the matching JSON file in your repository.')},
+ imp:async()=>{const e=await imp($('#io').value);if(e.length)msg(['Import rejected. Nothing was changed.',...e]);else{msg('Import complete.');lst()}},
+ reset:async()=>{await repo.reset();lst();msg('Drafts discarded. Seed questions restored.')}
+};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b&&!b.disabled)ACT[b.dataset.a](b.dataset.v)});
+repo.init().then(()=>go('home'));
+</script></body></html>
